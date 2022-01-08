@@ -1,0 +1,33 @@
+//this code is using extra space of 'b' array to store the sorted list
+using System;
+
+public class GFG{
+	static public void Main (){
+		//Code
+		int[] a={0,2,1,2,0};
+		sortarray(a);
+	}
+	static void sortarray(int[] arr)
+	{
+	    int len=arr.Length;
+	    int[] b=new int[len];
+	    int low=0, high=len-1;
+	    for(int i=0;i<len;i++)
+	    {
+	        if(arr[i]==0){
+	            b[low]=arr[i];
+	            low++;
+	        }
+	        else if(arr[i]==2){
+	            b[high]=arr[i];
+	            high--;
+	        }
+	        else
+	        b[low+1]=arr[i];
+	    }
+	    for(int j=0;j<len;j++)
+	    {
+	        Console.Write(b[j]+",");
+	    }
+	}
+}
