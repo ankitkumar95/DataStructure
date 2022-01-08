@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+
+public class GFG{
+	static public void Main (){
+		//Code
+		char[] ch={'{','(',')','}','[',']','{'};
+		Console.WriteLine("Output");
+		Console.WriteLine(isValid(ch));
+	}
+	static bool isValid(char[] ch)
+	{
+	    Stack<char> st=new Stack<char>();
+	    for(int i=0;i<ch.Length;i++)
+	    {
+	        char temp=ch[i];
+	        if(temp=='(' || temp=='{' || temp=='[')
+	        st.Push(temp);
+	        else if((temp==')' || temp=='}' || temp==']') && st.Count==0)
+	        return false;
+	        else if((temp==')' && st.Peek()!='(') || (temp=='}' && st.Peek()!='{') ||
+	        (temp==']' && st.Peek()!='['))
+	        return false;
+	        else
+	        st.Pop();
+	    }
+	    if(st.Count==0)
+	    return true;
+	    else
+	    return false;
+	}
+}
