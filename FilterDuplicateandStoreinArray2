@@ -1,0 +1,34 @@
+//Here any mutliple values will get filter out 
+using System;
+using System.Collections.Generic;
+
+public class GFG{
+	static public void Main (){
+	    int[] arr={4,4,4,7,8,8,9,4,9,8};
+	    removeDuplicate(arr);
+	}
+	static void removeDuplicate(int[] arr)
+	{
+	    int len=arr.Length;
+	    
+	    Stack<int> s=new Stack<int>();
+	    int count=0;
+	    List<int> lst=new List<int>();
+	    for(int i=0;i<len;i++){
+	        if(s.Contains(arr[i]))
+	        {
+	            count++;
+	            if(!lst.Contains(arr[i]))
+	            lst.Add(arr[i]);
+	        }
+	        else
+	        s.Push(arr[i]);
+	    }
+	    int[] res=lst.ToArray();
+
+	    for(int k=0;k<res.Length;k++)
+	    {
+	        Console.Write(res[k]);
+	    }
+	}
+}
