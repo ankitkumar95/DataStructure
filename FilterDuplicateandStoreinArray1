@@ -1,0 +1,34 @@
+//Here the duplicate repeats is upto 2 count only
+//eg 4,4,7,8,8,9 here 4,8 appears max of two times only
+using System;
+using System.Collections.Generic;
+
+public class GFG{
+	static public void Main (){
+	    int[] arr={4,4,7,8,8,9};
+	    removeDuplicate(arr);
+	}
+	static void removeDuplicate(int[] arr)
+	{
+	    int len=arr.Length;
+	    
+	    Stack<int> s=new Stack<int>();
+	    int count=0;
+	    List<int> lst=new List<int>();
+	    for(int i=0;i<len;i++){
+	        if(s.Contains(arr[i]))
+	        {
+	            count++;
+	            lst.Add(arr[i]);
+	        }
+	        else
+	        s.Push(arr[i]);
+	    }
+	    int[] res=lst.ToArray();
+
+	    for(int k=0;k<res.Length;k++)
+	    {
+	        Console.Write(res[k]);
+	    }
+	}
+}
