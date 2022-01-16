@@ -1,0 +1,61 @@
+using System;
+
+public class ReverseLinkList{
+    public Node head;
+    
+    public class Node 
+    {
+        public int data;
+        public Node next;
+        
+        public Node(int d)
+        {
+            data = d;
+        }
+    }
+	static public void Main (){
+		//Code
+		ReverseLinkList rv = new ReverseLinkList();
+		rv.head = new Node(1);
+		Node second  = new Node(2);
+		Node third = new Node(3);
+		Node fourth = new Node(4);
+		Node fifth = new Node(5);
+		Node sixth = new Node(6);
+		
+		rv.head.next = second;
+		second.next = third;
+		third.next = fourth;
+		fourth.next = fifth;
+		fifth.next = sixth;
+		
+		printList(rv.head);
+		Node res = reverseList(rv.head);
+		printList(res);
+	}
+	
+	static void printList(Node head)
+	{
+	    while(head!=null)
+	    {
+	        Console.Write(head.data+" ");
+	        head = head.next;
+	    }
+	}
+	
+	static Node reverseList(Node head)
+	{
+	    Node prev = null;
+	    Node curr = head;
+	    
+	    while(curr!=null)
+	    {
+	        Node temp = curr.next;
+	        curr.next = prev;
+	        prev = curr;
+	        curr = temp;
+	    }
+	    Console.WriteLine("After reverse");
+	    return prev;
+	}
+}
