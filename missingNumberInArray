@@ -1,0 +1,21 @@
+using System;
+
+public class GFG{
+	static public void Main (){
+		//Code
+		int[] arr = {6,1,2,8,3,4,7,10,5}; // here missing number is 9
+		printMissingNumber(arr, 10); // find missing number from 1 to 10 in the above array
+	}
+	
+	static void printMissingNumber(int[] arr, int n)
+	{
+	    int len = arr.Length;
+	    int sum = 0;
+	    int totalSum = (n*(n+1))/2;
+	    for(int i=0;i<len;i++)
+	    {
+	        sum = sum + arr[i];
+	    }
+	    Console.WriteLine("Missing num = "+(totalSum - sum));
+	}
+}
