@@ -1,0 +1,20 @@
+public int equilibriumPoint(int[] arr, int N)
+    {
+        //Your code here
+        int sum = 0;
+        int leftSum = 0;
+        for(int i=0;i<arr.Length;i++)
+        {
+            sum = sum + arr[i];
+        }
+        
+        for(int j=0;j<arr.Length;j++)
+        {
+            sum = sum - arr[j];
+            if(leftSum == sum)
+            return j+1;
+            else
+            leftSum = leftSum + arr[j];
+        }
+        return -1;
+    }
