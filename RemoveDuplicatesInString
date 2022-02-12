@@ -1,0 +1,25 @@
+using System;
+using System.Collections.Generic;
+
+public class GFG{
+	static public void Main (){
+		string str = "geeksforgeeks";
+		string res=string.Empty;
+		char[] ch = str.ToCharArray();
+		List<char> lst = new List<char>();
+		int len = str.Length;
+		
+		for(int i=0;i<len;i++)
+		{
+		    if(!lst.Contains(ch[i]))
+		    {
+		      lst.Add(ch[i]);
+		      res = res + ch[i];
+		    }
+		    else
+		    continue;
+		}
+		
+		Console.WriteLine("Output "+res);
+	}
+}
