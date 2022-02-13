@@ -1,0 +1,35 @@
+using System;
+
+public class GFG{
+	static public void Main (){
+		//Code
+		int[] arr = {1,10,5,100,105,2,5};
+		int n = arr.Length;
+		
+		int res = calculateMax(arr, n);
+		Console.WriteLine("Max Sum = "+res);
+	}
+	
+	static int calculateMax(int[] arr, int n)
+	{
+	    if(n==0)
+	    return 0;
+	    int val1 = arr[0];
+	    if(n==1)
+	    return val1;
+	    int val2 = Math.Max(arr[0], arr[1]);
+	    if(n==2)
+	    return val2;
+	    
+	    int maxSum = 0;
+	    
+	    for(int i=2;i<n;i++)
+	    {
+	        maxSum = Math.Max(arr[i]+val1, val2);
+	        val1 = val2;
+	        val2 = maxSum;
+	    }
+	    
+	    return maxSum;
+	}
+}
