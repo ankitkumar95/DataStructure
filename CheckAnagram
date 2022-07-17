@@ -1,0 +1,29 @@
+/* An anagram of a string is another string that contains the same characters, only the order of characters can be different. 
+For example, act and tac are an anagram of each other. */
+
+public bool isAnagram(string a, string b)
+{
+            //Your code here
+            char[] temp1 = a.ToCharArray();
+            char[] temp2 = b.ToCharArray();
+            
+            Array.Sort(temp1);
+            Array.Sort(temp2);
+            
+            bool isEqual = true;
+            
+            if(temp1.Length!=temp2.Length)
+            isEqual=false;
+            
+            for(int i=0;i<temp1.Length;i++)
+            {
+                if(temp1[i]!=temp2[i])
+                {
+                    isEqual = false;
+                    break;
+                }
+            }
+            
+            return isEqual;
+            
+}
