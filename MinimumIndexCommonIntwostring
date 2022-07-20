@@ -1,0 +1,30 @@
+/* str = geeksforgeeks, str2 = set => min index of string str that is present in str2
+
+public int minIndexChar(string str, string patt)
+        {
+            //Your code here
+            char[] temp1 = str.ToCharArray();
+            char[] temp2 = patt.ToCharArray();
+            int min = -1;
+            Dictionary<int, char> mydict = new Dictionary<int, char>();
+            
+            for(int i=0;i<temp2.Length;i++)
+            {
+                if(mydict.ContainsValue(temp2[i])==false)
+                {
+                    mydict.Add(i, temp2[i]);
+                }
+                
+            }
+            
+            for(int i=0;i<temp1.Length;i++)
+            {
+                if(mydict.ContainsValue(temp1[i])==true)
+                {
+                    min = i;
+                    break;
+                }
+            }
+                
+            return min;
+        }
