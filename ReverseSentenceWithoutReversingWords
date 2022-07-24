@@ -1,0 +1,39 @@
+/* eg. input    i.like.this.program.very.much
+output          much.very.program.this.like.i   */
+
+public string reverseWords(string s)
+        {
+            //Your code here
+            char[] ch = s.ToCharArray();
+            string res="";
+            int k = 0;
+            string sub = "";
+            int count = 0;
+            for(int i=0;i<ch.Length;i++)
+            {
+                if(ch[i]=='.')
+                {
+                    sub = s.Substring(k, i-k);
+                    k=i+1;
+                    if(count>=1)
+                    res=sub+"."+res;
+                    else
+                    res=sub+res;
+                    count++;
+                }
+                if(i==ch.Length-1)
+                {
+                    if(count==0)
+                    {
+                        res=s;
+                    }
+                    else
+                    {
+                        sub = s.Substring(k, i-k+1);
+                        res = sub+"."+res;
+                    }
+                }
+            }
+            
+            return res;
+        }
