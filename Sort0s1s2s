@@ -9,25 +9,31 @@ public class GFG{
 	}
 	static void sortarray(int[] arr)
 	{
-	    int len=arr.Length;
+	    int len=a.Length;
 	    int[] b=new int[len];
 	    int low=0, high=len-1;
-	    for(int i=0;i<len;i++)
-	    {
-	        if(arr[i]==0){
-	            b[low]=arr[i];
-	            low++;
-	        }
-	        else if(arr[i]==2){
-	            b[high]=arr[i];
+	    int mid = 0;
+	    while(mid<=high){
+		if(a[mid]==0){
+		int temp=a[mid];
+		a[mid]=a[low];
+		a[low]=temp;
+		mid++;
+		low++;
+        	}
+		else if(a[mid]==1){
+		    mid++;
+		}
+	        else{
+	            int temp=a[high];
+	            a[high]=a[mid];
+	            a[mid]=temp;
 	            high--;
 	        }
-	        else
-	        b[low+1]=arr[i];
-	    }
-	    for(int j=0;j<len;j++)
-	    {
-	        Console.Write(b[j]+",");
-	    }
+    	}
+	for(int j=0;j<len;j++)
+	{
+	Console.Write(a[j]+",");
+	}
 	}
 }
