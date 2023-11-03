@@ -1,0 +1,32 @@
+/* 
+eg. str = geeksforgeeks
+o/p = f
+*/
+
+class Solution
+    {
+        //Complete this function
+        public char nonrepeatingCharacter(string s)
+        {
+            //Your code here
+            
+            char[] count = new char[256];
+            
+            for(int i=0;i<s.Length;i++)
+            {
+                count[s[i]]++;
+            }
+            
+            char result='$';
+            
+            for(int j=0;j<s.Length;j++)
+            {
+                if(count[s[j]]==1){
+                    result = s[j];
+                    break;
+                }
+            }
+            return result;
+        }
+
+    }
