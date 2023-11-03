@@ -1,0 +1,44 @@
+/* 
+Check if String 1 can be formed by rearranging String 2
+eg. str1 = rkqodlw  str2 = world    -> true
+eg. str1 = world    str2 = ww       -> false
+*/
+
+namespace CodingPractice
+{
+    public class Program
+    {
+        public static void Main()
+        {
+            //Console.WriteLine("Test String 1 in String 2");
+            string str1 = "worldw";
+            string str2 = "world";
+            if (canMakeStr2(str1, str2))
+                Console.WriteLine("Yes");
+            else
+                Console.WriteLine("No");
+        }
+
+        static int MAX = 256;
+
+        static bool canMakeStr2(string str1, string str2)
+        {
+            // Create a count array and count frequencies
+            // characters in str1.
+            int[] count = new int[MAX];
+            Console.WriteLine("Test Count "+count['b']);
+            for (int i = 0; i < str1.Length; i++)
+                count[str1[i]]++;
+
+            // Now traverse through str2 to check
+            // if every character has enough counts
+            for (int i = 0; i < str2.Length; i++)
+            {
+                if (count[str2[i]] == 0)
+                    return false;
+                count[str2[i]]--;
+            }
+            return true;
+        }
+    }
+}
